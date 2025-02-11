@@ -1,0 +1,41 @@
+document.addEventListener("DOMContentLoaded", tampilkanPrestasi);
+
+function tambahPrestasi() {
+    let nama = document.getElementById("nama").value;
+    let kelas = document.getElementById("kelas").value;
+    let prestasi = document.getElementById("prestasi").value;
+
+    if (nama === "" || kelas === "" || prestasi === "") {
+        alert("Harap isi semua data!");
+        return;
+    }
+
+    let dataPrestasi = JSON.parse(localStorage.getItem("prestasi")) || [];
+    dataPrestasi.push({ nama, kelas, prestasi });
+    localStorage.setItem("prestasi", JSON.stringify(dataPrestasi));
+
+    tampilkanPrestasi();
+}
+
+function tampilkanPrestasi() {
+    let prestasiList = document.getElementById("prestasi-list");
+    prestasiList.innerHTML = "";
+
+    let dataPrestasi = JSON.parse(localStorage.getItem("prestasi")) || [];
+
+    dataPrestasi.forEach((item, index) => {
+        let li = document.createElement("li");
+        li.textContent = `${item.nama} (${item.kelas}) - ${item.prestasi}`;
+        prestasiList.appendChild(li);
+    });
+}
+
+function searchPrestasi() {
+    let searchValue = document.getElementById("search").value.toLowerCase();
+    let prestasiList = document.getElementById("prestasi-list").getElementsByTagName("li");
+
+    for (let item of prestasiList) {
+        let text = item.textContent.toLowerCase();
+        item.style.display = text.includes(searchValue) ? "" : "none";
+    }
+}
