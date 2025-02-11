@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keorganisasian Sekolah</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Keorganisasian Sekolah</h1>
+        <nav>
+            <a href="#home">Beranda</a>
+            <a href="#anggota">Anggota</a>
+            <a href="#prestasi">Prestasi</a>
+            <a href="#tambah-prestasi">Tambah Prestasi</a>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h2>Selamat Datang di Keorganisasian Sekolah</h2>
+        <p>Website ini berisi informasi tentang organisasi sekolah dan daftar prestasi siswa.</p>
+    </section>
+
+    <section id="anggota">
+        <h2>Daftar Anggota Organisasi</h2>
+        <ul>
+            <li>Ahmad - Ketua</li>
+            <li>Budi - Wakil Ketua</li>
+            <li>Citra - Sekretaris</li>
+            <li>Dewi - Bendahara</li>
+        </ul>
+    </section>
+
+    <section id="prestasi">
+        <h2>Daftar Prestasi Siswa</h2>
+        <input type="text" id="search" placeholder="Cari prestasi..." onkeyup="searchPrestasi()">
+        <ul id="prestasi-list"></ul>
+    </section>
+
+    <section id="tambah-prestasi">
+        <h2>Tambah Prestasi Baru</h2>
+        <input type="text" id="nama" placeholder="Nama Siswa">
+        <input type="text" id="kelas" placeholder="Kelas">
+        <input type="text" id="prestasi" placeholder="Jenis Prestasi">
+        <button onclick="tambahPrestasi()">Tambah</button>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
